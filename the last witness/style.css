@@ -1,0 +1,746 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #090909;
+    color: #eeeeee;
+    font-family: Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+}
+
+
+/* ================= GENERAL SCREEN ================= */
+
+.screen {
+    display: none;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: block;
+}
+
+
+/* ================= START SCREEN ================= */
+
+#startScreen {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at center, #2a1717 0%, #090909 65%);
+}
+
+#startScreen.active {
+    display: flex;
+}
+
+.start-content {
+    max-width: 800px;
+    padding: 40px;
+}
+
+.case-number,
+.case-label {
+    color: #b78b5a;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.start-content h1 {
+    font-size: clamp(55px, 10vw, 110px);
+    line-height: 0.85;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+}
+
+.start-content h1 span {
+    color: #9f3030;
+}
+
+.tagline {
+    color: #999;
+    font-size: 19px;
+    font-style: italic;
+    margin-bottom: 45px;
+}
+
+.warning {
+    margin-top: 30px;
+    color: #555;
+    font-size: 12px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.main-btn {
+    background: #9f3030;
+    color: white;
+    border: 1px solid #c95a5a;
+    padding: 16px 32px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: #c23c3c;
+    transform: translateY(-2px);
+}
+
+
+/* ================= CASE INTRO ================= */
+
+#caseScreen {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle, #201515, #080808 70%);
+}
+
+#caseScreen.active {
+    display: flex;
+}
+
+.case-box {
+    width: min(700px, 90%);
+    padding: 60px 30px;
+    border: 1px solid #333;
+    background: rgba(20, 20, 20, 0.9);
+}
+
+.case-box h2 {
+    font-size: 36px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.case-box p {
+    color: #aaa;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.divider {
+    width: 80px;
+    height: 2px;
+    background: #9f3030;
+    margin: 25px auto;
+}
+
+.important-text {
+    color: #c34b4b !important;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 30px 0 !important;
+}
+
+
+/* ================= GAME HEADER ================= */
+
+.game-header {
+    height: 85px;
+    border-bottom: 1px solid #282828;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: #0c0c0c;
+}
+
+.small-title {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.game-header h2 {
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.status {
+    text-align: right;
+}
+
+.status span {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.status strong {
+    color: #b78b5a;
+    font-size: 12px;
+}
+
+
+/* ================= INVESTIGATION ================= */
+
+.investigation {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 60px 0;
+}
+
+.location-box {
+    border-left: 3px solid #9f3030;
+    padding-left: 25px;
+    margin-bottom: 60px;
+}
+
+.location-label {
+    color: #b78b5a;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.location-box h1 {
+    margin: 8px 0;
+    font-size: 35px;
+}
+
+.location-box p {
+    color: #777;
+}
+
+.section-title {
+    color: #aaa;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+
+/* ================= SUSPECTS ================= */
+
+.suspect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.suspect-card {
+    background: #121212;
+    border: 1px solid #292929;
+    padding: 28px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.suspect-card:hover {
+    border-color: #9f3030;
+    transform: translateY(-5px);
+}
+
+.avatar,
+.big-avatar {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #b78b5a;
+    margin-bottom: 20px;
+}
+
+.suspect-card h3 {
+    letter-spacing: 3px;
+}
+
+.role {
+    color: #9f3030 !important;
+    font-size: 11px !important;
+    letter-spacing: 2px;
+    margin: 6px 0 15px;
+}
+
+.suspect-card p {
+    color: #777;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.suspect-card button {
+    margin-top: 20px;
+    background: transparent;
+    color: #bbb;
+    border: 1px solid #444;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.suspect-card button:hover {
+    border-color: #9f3030;
+    color: white;
+}
+
+
+/* ================= EVIDENCE ================= */
+
+.evidence-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.evidence-card {
+    background: #141414;
+    border: 1px solid #333;
+    padding: 15px 20px;
+    min-width: 190px;
+}
+
+.evidence-card span {
+    margin-left: 8px;
+    color: #aaa;
+}
+
+.evidence-card.locked {
+    color: #555;
+}
+
+
+/* ================= ACCUSE ================= */
+
+.accuse-btn {
+    display: block;
+    margin: auto;
+    background: transparent;
+    border: 1px solid #9f3030;
+    color: #c95a5a;
+    padding: 15px 30px;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.accuse-btn:hover {
+    background: #9f3030;
+    color: white;
+}
+
+
+/* ================= INTERROGATION ================= */
+
+.interrogation {
+    width: min(850px, 92%);
+    margin: auto;
+    padding: 45px 0;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+}
+
+.suspect-profile {
+    text-align: center;
+}
+
+.suspect-profile .big-avatar {
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    font-size: 40px;
+}
+
+.suspect-profile h1 {
+    letter-spacing: 5px;
+}
+
+.suspect-profile p {
+    color: #9f3030;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-top: 8px;
+}
+
+
+/* ================= METERS ================= */
+
+.meters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.meter-info {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.meter-bar {
+    height: 5px;
+    background: #292929;
+}
+
+.meter-fill {
+    height: 100%;
+    width: 50%;
+    transition: width 0.5s;
+}
+
+.trust {
+    background: #668c6d;
+}
+
+.suspicion {
+    background: #a33b3b;
+}
+
+
+/* ================= CHAT ================= */
+
+.conversation {
+    min-height: 260px;
+    max-height: 380px;
+    overflow-y: auto;
+    border: 1px solid #292929;
+    background: #0d0d0d;
+    padding: 25px;
+}
+
+.message {
+    margin-bottom: 25px;
+    max-width: 80%;
+}
+
+.message-name {
+    color: #b78b5a;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.message p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.message.player {
+    margin-left: auto;
+    text-align: right;
+}
+
+.message.player .message-name {
+    color: #777;
+}
+
+
+/* ================= QUESTION ================= */
+
+.question-area {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: none;
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #9f3030;
+}
+
+.question-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.voice-btn,
+.ask-btn {
+    padding: 13px 20px;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: #171717;
+    color: #ccc;
+}
+
+.voice-btn:hover,
+.ask-btn:hover {
+    border-color: #9f3030;
+    color: white;
+}
+
+.ask-btn {
+    background: #9f3030;
+}
+
+.voice-status {
+    color: #b78b5a;
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+
+/* ================= QUICK QUESTIONS ================= */
+
+.quick-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.quick-questions button {
+    background: transparent;
+    border: 1px solid #292929;
+    color: #777;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.quick-questions button:hover {
+    color: white;
+    border-color: #555;
+}
+
+
+/* ================= ACCUSATION SCREEN ================= */
+
+#accusationScreen {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#accusationScreen.active {
+    display: flex;
+}
+
+.accusation-box {
+    width: min(700px, 90%);
+    padding: 50px 30px;
+}
+
+.accusation-box h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.accusation-box p {
+    color: #888;
+    margin: 12px;
+}
+
+.accusation-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.accusation-buttons button {
+    padding: 20px;
+    background: #121212;
+    border: 1px solid #333;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.accusation-buttons button:hover {
+    border-color: #9f3030;
+    background: #1d1111;
+}
+
+
+/* ================= ENDING ================= */
+
+#endingScreen {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle, #241414, #080808 70%);
+}
+
+#endingScreen.active {
+    display: flex;
+}
+
+.ending-box {
+    width: min(700px, 90%);
+    padding: 50px 30px;
+}
+
+.ending-box h1 {
+    font-size: 48px;
+    letter-spacing: 3px;
+}
+
+.ending-box p {
+    color: #999;
+    line-height: 1.8;
+}
+
+.ending-stats {
+    margin: 30px 0;
+    color: #b78b5a;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 750px) {
+
+    .suspect-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meters {
+        grid-template-columns: 1fr;
+    }
+
+    .accusation-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .game-header {
+        padding: 0 20px;
+    }
+
+    .investigation {
+        padding-top: 35px;
+    }
+
+    .start-content h1 {
+        font-size: 55px;
+    }
+}
+/* ===== THRILLER START SCREEN ===== */
+
+/* ===== THRILLER START PAGE ===== */
+#startScreen {
+    min-height: 100vh;
+    background-image: url("assets/last-witness-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* =================================
+   CASE SELECTOR
+================================= */
+
+.case-selector {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.case-selector h2 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.case-subtitle {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.case-card {
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 22px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.25s ease;
+    position: relative;
+}
+
+.case-card:hover {
+    transform: translateY(-4px);
+    border-color: #a00000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.case-card.active {
+    border: 2px solid #b30000;
+    box-shadow: 0 0 20px rgba(179, 0, 0, 0.3);
+}
+
+.case-number {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #b30000;
+    font-weight: bold;
+}
+
+.case-card h3 {
+    margin: 10px 0;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.case-card p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 45px;
+}
+
+.case-card button {
+    margin-top: 12px;
+    padding: 9px 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+.case-card.active button {
+    background: #8b0000;
+    border-color: #8b0000;
+}
+
+.selected-case {
+    margin-top: 25px;
+    color: #ddd;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+#investigationScreen.active {
+    display: block;
+}
+#investigationScreen {
+    display: none;
+}

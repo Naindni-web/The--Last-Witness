@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Last Witness</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- ================= START SCREEN ================= -->
+
+    <section id="startScreen" class="screen active">
+
+        <div class="start-content">
+
+            <p class="case-number">CASE FILE #017</p>
+
+            <h1>THE LAST<br><span>WITNESS</span></h1>
+
+            <p class="tagline">
+                Everyone remembers the night differently.
+            </p>
+
+            <button class="main-btn" onclick="startGame()">
+                ENTER THE CASE
+            </button>
+
+            <p class="warning">
+                ⚠ Psychological mystery • Interactive investigation
+            </p>
+
+        </div>
+
+    </section> 
+
+        </div>
+
+    </section>
+
+
+<!-- ================= CASE INTROOO ===================== -->
+ <section id="caseScreen" class="screen">
+    <div class="case-box">
+        <div class="case-selector">
+
+    <h2>SELECT YOUR CASE</h2>
+    <p class="case-subtitle">Choose a mystery to investigate.</p>
+    <div class="case-grid">
+
+    <div class="case-card active" onclick="selectCase(1)">
+        <span class="case-number">CASE 01</span>
+        <h3>THE DEATH OF LORD VAREN</h3>
+        <p>A locked-room murder. Three suspects. One of them is lying.</p>
+
+        <button type="button" onclick="selectCase(1); beginSelectedCase()">
+            SELECT CASE
+        </button>
+    </div>
+
+
+    <div class="case-card" onclick="selectCase(2)">
+        <span class="case-number">CASE 02</span>
+        <h3>THE MISSING HEIR</h3>
+        <p>A wealthy family's heir disappears before a mysterious inheritance.</p>
+
+        <button type="button" onclick="selectCase(2); beginSelectedCase()">
+            SELECT CASE
+        </button>
+    </div>
+
+
+    <div class="case-card" onclick="selectCase(3)">
+        <span class="case-number">CASE 03</span>
+        <h3>MURDER ON PLATFORM 9</h3>
+        <p>A businessman is found dead at an apparently empty train station.</p>
+
+        <button type="button" onclick="selectCase(3); beginSelectedCase()">
+            SELECT CASE
+        </button>
+    </div>
+
+
+    <div class="case-card" onclick="selectCase(4)">
+        <span class="case-number">CASE 04</span>
+        <h3>THE RED ROOM</h3>
+        <p>A famous author is dead inside a room locked from the inside.</p>
+
+        <button type="button" onclick="selectCase(4); beginSelectedCase()">
+            SELECT CASE
+        </button>
+    </div>
+
+
+    <div class="case-card" onclick="selectCase(5)">
+        <span class="case-number">CASE 05</span>
+        <h3>THE VANISHING WITNESS</h3>
+        <p>The only witness to a murder disappears before questioning.</p>
+
+        <button type="button" onclick="selectCase(5); beginSelectedCase()">
+            SELECT CASE
+        </button>
+    </div>
+
+</div>
+  
+    <p id="selectedCaseText" class="selected-case">
+        Selected: CASE 01 — THE DEATH OF LORD VAREN
+    </p>
+
+</div>
+
+    </section>
+
+
+    <!-- ================= INVESTIGATION ================= -->
+
+    <section id="investigationScreen" class="screen">
+
+        <header class="game-header">
+
+            <div>
+                <p class="small-title">CASE #017</p>
+                <h2>THE VAREN MURDER</h2>
+            </div>
+
+            <div class="status">
+                <span>CASE STATUS</span>
+                <strong id="caseStatus">INVESTIGATING</strong>
+            </div>
+
+        </header>
+
+
+        <main class="investigation">
+
+            <div class="location-box">
+
+                <p class="location-label">LOCATION</p>
+
+                <h1>THE VAREN ESTATE</h1>
+
+                <p>
+                    The castle is silent.
+                    Three witnesses remain.
+                </p>
+
+            </div>
+
+
+            <!-- SUSPECTS -->
+
+            <h3 class="section-title">SUSPECTS</h3>
+
+            <div class="suspect-grid">
+
+                <div class="suspect-card" onclick="selectSuspect('mira')">
+
+                    <div class="avatar">M</div>
+
+                    <h3>MIRA</h3>
+
+                    <p class="role">THE MAID</p>
+
+                    <p>
+                        Nervous. Observant.
+                        Claims she stayed in the kitchen.
+                    </p>
+
+                    <button>INTERROGATE</button>
+
+                </div>
+
+
+                <div class="suspect-card" onclick="selectSuspect('kael')">
+
+                    <div class="avatar">K</div>
+
+                    <h3>KAEL</h3>
+
+                    <p class="role">THE GUARD</p>
+
+                    <p>
+                        Confident. Aggressive.
+                        Claims he guarded the main hall.
+                    </p>
+
+                    <button>INTERROGATE</button>
+
+                </div>
+
+
+                <div class="suspect-card" onclick="selectSuspect('eron')">
+
+                    <div class="avatar">E</div>
+
+                    <h3>ERON</h3>
+
+                    <p class="role">THE MERCHANT</p>
+
+                    <p>
+                        Charming. Intelligent.
+                        Claims he left before the murder.
+                    </p>
+
+                    <button>INTERROGATE</button>
+
+                </div>
+
+            </div>
+
+
+            <!-- EVIDENCE -->
+
+            <h3 class="section-title">EVIDENCE DISCOVERED</h3>
+
+            <div id="evidenceList" class="evidence-grid">
+
+                <div class="evidence-card locked">
+                    🔒
+                    <span>Unknown evidence</span>
+                </div>
+
+            </div>
+
+
+            <button class="accuse-btn" onclick="openAccusation()">
+                ⚖ MAKE AN ACCUSATION
+            </button>
+
+        </main>
+
+    </section>
+
+
+    <!-- ================= INTERROGATION ================= -->
+
+    <section id="interrogationScreen" class="screen">
+
+        <header class="game-header">
+
+            <button class="back-btn" onclick="showInvestigation()">
+                ← BACK
+            </button>
+
+            <div class="status">
+                <span>INTERROGATING</span>
+                <strong id="suspectHeader">MIRA</strong>
+            </div>
+
+        </header>
+
+
+        <main class="interrogation">
+
+            <div class="suspect-profile">
+
+                <div class="big-avatar" id="suspectAvatar">M</div>
+
+                <h1 id="suspectName">MIRA</h1>
+
+                <p id="suspectRole">THE MAID</p>
+
+            </div>
+
+
+            <!-- TRUST -->
+
+            <div class="meters">
+
+                <div class="meter">
+
+                    <div class="meter-info">
+                        <span>TRUST</span>
+                        <span id="trustValue">50%</span>
+                    </div>
+
+                    <div class="meter-bar">
+                        <div id="trustBar" class="meter-fill trust"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="meter">
+
+                    <div class="meter-info">
+                        <span>SUSPICION</span>
+                        <span id="suspicionValue">10%</span>
+                    </div>
+
+                    <div class="meter-bar">
+                        <div id="suspicionBar" class="meter-fill suspicion"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHAT -->
+
+            <div id="conversation" class="conversation">
+
+                <div class="message witness">
+
+                    <div class="message-name" id="initialName">
+                        MIRA
+                    </div>
+
+                    <p id="initialDialogue">
+                        You wanted to speak with me?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION AREA -->
+
+            <div class="question-area">
+
+                <textarea
+                    id="questionInput"
+                    placeholder="Ask the witness anything..."
+                ></textarea>
+
+
+                <div class="question-buttons">
+
+                    <button
+                        class="voice-btn"
+                        onclick="startListening()"
+                        id="voiceButton"
+                    >
+                        🎙 SPEAK
+                    </button>
+
+                    <button
+                        class="ask-btn"
+                        onclick="askQuestion()"
+                    >
+                        ASK QUESTION
+                    </button>
+
+                </div>
+
+                <p id="voiceStatus" class="voice-status"></p>
+
+            </div>
+
+
+            <!-- QUICK QUESTIONS -->
+
+            <div class="quick-questions">
+
+                <button onclick="quickQuestion('Where were you at 11 PM?')">
+                    Where were you at 11 PM?
+                </button>
+
+                <button onclick="quickQuestion('Did you know Lord Varen?')">
+                    Did you know Lord Varen?
+                </button>
+
+                <button onclick="quickQuestion('Did you enter the east wing?')">
+                    Did you enter the east wing?
+                </button>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- ================= ACCUSATION ================= -->
+
+    <section id="accusationScreen" class="screen">
+
+        <div class="accusation-box">
+
+            <p class="case-label">FINAL DECISION</p>
+
+            <h1>WHO KILLED LORD VAREN?</h1>
+
+            <p>
+                You have examined the evidence.
+                You have questioned the witnesses.
+            </p>
+
+            <p class="important-text">
+                Now choose carefully.
+            </p>
+
+
+            <div class="accusation-buttons">
+
+                <button onclick="makeAccusation('mira')">
+                    👩 ACCUSE MIRA
+                </button>
+
+                <button onclick="makeAccusation('kael')">
+                    ⚔ ACCUSE KAEL
+                </button>
+
+                <button onclick="makeAccusation('eron')">
+                    🎩 ACCUSE ERON
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ENDING ================= -->
+
+    <section id="endingScreen" class="screen">
+
+        <div class="ending-box">
+
+            <p class="case-label">CASE CLOSED</p>
+
+            <h1 id="endingTitle">CASE COMPLETE</h1>
+
+            <div class="divider"></div>
+
+            <p id="endingText"></p>
+
+            <div id="endingStats" class="ending-stats"></div>
+
+            <button class="main-btn" onclick="location.reload()">
+                PLAY AGAIN
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
